@@ -5,7 +5,7 @@ import Vision from "@/assets/icons/Vision";
 import Mission from "@/assets/icons/Mission";
 
 const AboutContent = () => (
-  <div className="w-1/2">
+  <div className="lg:w-1/2">
     <div className="space-y-4">
       <h4 className="text-xl font-bold text-primaryBlue">Tentang Kami</h4>
       <h1 className="text-6xl font-bold text-slate-800">
@@ -58,7 +58,7 @@ const AboutImage = () => (
     alt="tetang kami"
     width={1920}
     height={1080}
-    className="w-96 object-contain"
+    className="w-1/2 object-contain lg:w-96"
   />
 );
 
@@ -66,7 +66,7 @@ const About = () => {
   return (
     <section className="flexCenter paddingY">
       <Container>
-        <div className="flex justify-between">
+        <div className="flex flex-col-reverse justify-between">
           <AboutContent />
           <AboutImage />
         </div>
