@@ -4,8 +4,8 @@ const MenuIcon = (props: any) => (
     xmlns="http://www.w3.org/2000/svg"
     width={24}
     height={24}
-    fill="black"
-    stroke="black"
+    fill="none"
+    stroke="currentColor"
     strokeLinecap="round"
     strokeLinejoin="round"
     strokeWidth={2}
