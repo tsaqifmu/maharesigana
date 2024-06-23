@@ -20,6 +20,16 @@
 .paddingY {
   @apply py-12 xl:py-20;
 }
+.paragraph {
+  @apply text-sm md:text-base lg:text-lg;
+}
+.heading1 {
+  @apply text-3xl font-bold md:text-4xl lg:text-6xl;
+}
+
+.heading2 {
+  @apply text-xl font-semibold lg:text-2xl;
+}
 
 .sidebar {
   -webkit-animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;

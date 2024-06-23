@@ -37,7 +37,7 @@ const NavItem = ({ href, label, isMobile }: navItem) => (
 const Logo = () => (
   <Link href="/">
     <Image
-      className="w-[130px] xl:w-[130px]"
+      className="w-[100px] lg:w-[130px]"
       src={"/maharesigana navbar logo.png"}
       width={212}
       height={50}
