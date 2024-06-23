@@ -6,12 +6,10 @@ import Mission from "@/assets/icons/Mission";
 
 const AboutContent = () => (
   <div className="lg:w-1/2">
-    <div className="space-y-4">
-      <h4 className="text-xl font-bold text-primaryBlue">Tentang Kami</h4>
-      <h1 className="text-6xl font-bold text-slate-800">
-        Apa Itu MAHARESIGANA?
-      </h1>
-      <p className="text-lg">
+    <div className="space-y-1 lg:space-y-4">
+      <h2 className="heading2 text-primaryBlue">Tentang Kami</h2>
+      <h1 className="heading1">Apa Itu MAHARESIGANA?</h1>
+      <p className="paragraph text-slate-700">
         Maharesigana merupakan organisasi yang berdiri pada tahun 2016. Bergerak
         dalam penanggulangan Bencana mulai dari pra, saat hingga Pasca Bencana.
         Maharesigana banyak berkolaborasi dengan perguruan tinggi, MDMC, BPBD,
@@ -19,20 +17,20 @@ const AboutContent = () => (
       </p>
     </div>
     <div className="mt-5 flex gap-x-5">
-      <Vision className="h-16 w-16" />
+      <Vision className="h-10 w-10 lg:h-16 lg:w-16" />
       <div>
-        <h3 className="text-2xl font-bold">Visi</h3>
-        <p className="text-lg">
+        <h2 className="heading2">Visi</h2>
+        <p className="paragraph text-slate-700">
           “Menjadi Organisasi Relawan Profesional Yang Memiliki Nilai Ketuhanan
           Dan Kemanusiaan”
         </p>
       </div>
     </div>
     <div className="mt-5 flex gap-x-5">
-      <Mission className="h-16 w-16" />
+      <Mission className="h-10 w-10 lg:h-16 lg:w-16" />
       <div>
-        <h3 className="text-2xl font-bold">Misi</h3>
-        <ol className="ml-4 list-decimal text-lg">
+        <h2 className="heading2">Misi</h2>
+        <ol className="paragraph ml-4 list-decimal text-slate-700">
           <li>Mewujudkan SDM yang memiliki nilai-nilai keislaman</li>
           <li>Menjadi mitra MDMC dan lembaga kemanusiaan</li>
           <li>
@@ -58,7 +56,7 @@ const AboutImage = () => (
     alt="tetang kami"
     width={1920}
     height={1080}
-    className="w-1/2 object-contain lg:w-96"
+    className="object-contain sm:w-2/3 lg:w-96"
   />
 );
 
@@ -66,7 +64,7 @@ const About = () => {
   return (
     <section className="flexCenter paddingY">
       <Container>
-        <div className="flex flex-col-reverse justify-between">
+        <div className="flex flex-col-reverse items-center gap-y-5 lg:flex-row lg:justify-between">
           <AboutContent />
           <AboutImage />
         </div>

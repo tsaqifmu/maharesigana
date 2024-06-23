@@ -6,11 +6,11 @@ import Container from "./Container";
 const HeroContent = () => (
   <Container className="absolute z-10 pt-14 font-inter text-white">
     <div className="flex h-full flex-col justify-center space-y-1 lg:space-y-3">
-      <h3 className="text-xl font-semibold lg:text-2xl">Maharesigana</h3>
-      <h1 className="w-2/3 text-3xl font-extrabold md:text-4xl lg:text-5xl">
+      <h2 className="heading2">Maharesigana</h2>
+      <h1 className="heading1 w-2/3">
         Psychological First Aids : Kesehatan Mental Juga Memerlukan Bantuan
       </h1>
-      <p className="w-2/3 text-sm font-normal md:text-base lg:w-1/2 lg:text-lg">
+      <p className="paragraph w-2/3 lg:w-1/2">
         Respon psikologis dari kejadian traumatis ini merupakan reaksi normal
         dalam keadaan tidak normal. Meski demikian, hal ini harus mendapatkan
         penanganan psikologis dengan segera seperti dukungan psikologis awal
