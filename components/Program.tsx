@@ -77,7 +77,7 @@ const Program = () => {
             modules={[Autoplay]}
           >
             {[...Array(9)].map((_, index) => (
-              <SwiperSlide>
+              <SwiperSlide key={index}>
                 <ProgramCards />
               </SwiperSlide>
             ))}
