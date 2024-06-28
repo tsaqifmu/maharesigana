@@ -1,20 +1,15 @@
-import About from "@/components/About";
-import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
-import NavBar from "@/components/Navbar";
+import About from "@/components/About";
 import Program from "@/components/Program";
-import Image from "next/image";
+import Artikel from "@/components/Artikel";
 
 export default function Home() {
   return (
-    <>
-      <NavBar />
-      <main>
-        <Hero />
-        <About />
-        <Program />
-      </main>
-      <Footer />
-    </>
+    <main>
+      <Hero />
+      <About />
+      <Program />
+      {/* <Artikel /> */}
+    </main>
   );
 }

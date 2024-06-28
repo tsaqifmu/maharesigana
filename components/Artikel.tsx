@@ -1,14 +1,13 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import Image from "next/image";
-
-import { Autoplay } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-import ExternalLink from "@/assets/icons/ExternalLink";
-import "swiper/css";
-
+import React from "react";
 import Container from "./Container";
+import Image from "next/image";
+import ExternalLink from "@/assets/icons/ExternalLink";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
 
 const ProgramCards = () => {
   return (
@@ -42,50 +41,33 @@ const ProgramCards = () => {
   );
 };
 
-const Program = () => {
-  const [slidesPerView, setSlidesPerView] = useState(3);
-
-  const updateSlidesPerView: any = () => {
-    const width = window.innerWidth;
-    if (width <= 678) {
-      setSlidesPerView(1);
-    } else {
-      setSlidesPerView(3);
-    }
-  };
-
-  useEffect(() => {
-    updateSlidesPerView(); // Initial check
-    window.addEventListener("resize", updateSlidesPerView);
-    return () => {
-      window.removeEventListener("resize", updateSlidesPerView);
-    };
-  }, []);
-
+const Artikel = () => {
   return (
     <section className="flexCenter paddingY bg-[#EFF8FF]">
       <Container>
-        <h1 className="heading1 text-center">Program Kegiatan</h1>
-        <div className="mt-16">
-          <Swiper
-            slidesPerView={slidesPerView}
-            spaceBetween={10}
-            autoplay={{
-              delay: 2500,
-              disableOnInteraction: false,
-            }}
-            modules={[Autoplay]}
-          >
-            {[...Array(9)].map((_, index) => (
-              <SwiperSlide>
-                <ProgramCards />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+        <h1 className="heading1 text-center">Artikel</h1>
+        <Swiper
+          slidesPerView={3}
+          spaceBetween={30}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[Pagination]}
+          className="mySwiper h-96"
+        >
+          <SwiperSlide className="bg-white">Slide 1</SwiperSlide>
+          <SwiperSlide className="bg-white">Slide 2</SwiperSlide>
+          <SwiperSlide>Slide 3</SwiperSlide>
+          <SwiperSlide>Slide 4</SwiperSlide>
+          <SwiperSlide>Slide 5</SwiperSlide>
+          <SwiperSlide>Slide 6</SwiperSlide>
+          <SwiperSlide>Slide 7</SwiperSlide>
+          <SwiperSlide>Slide 8</SwiperSlide>
+          <SwiperSlide>Slide 9</SwiperSlide>
+        </Swiper>
       </Container>
     </section>
   );
 };
 
-export default Program;
+export default Artikel;
