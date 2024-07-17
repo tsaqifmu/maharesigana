@@ -6,7 +6,6 @@ import Image from "next/image";
 import { useState } from "react";
 
 import { navLinks } from "@/constants";
-import { styles } from "@/constants/style";
 
 import Container from "./Container";
 import MenuIcon from "@/assets/icons/Menu";
@@ -30,7 +29,7 @@ const NavItem = ({ href, label, isMobile }: navItem) => (
       isMobile ? "mb-4" : "navLinkDesktop"
     }`}
   >
-    <Link href={`/#${href}`}>{label}</Link>
+    <Link href={`/${href}`}>{label}</Link>
   </li>
 );
 

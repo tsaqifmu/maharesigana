@@ -71,7 +71,7 @@ const Program = () => {
             slidesPerView={slidesPerView}
             spaceBetween={10}
             autoplay={{
-              delay: 2500,
+              delay: 1000,
               disableOnInteraction: false,
             }}
             modules={[Autoplay]}

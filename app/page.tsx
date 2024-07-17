@@ -9,7 +9,7 @@ export default function Home() {
       <Hero />
       <About />
       <Program />
-      {/* <Artikel /> */}
+      <Artikel />
     </main>
   );
 }
