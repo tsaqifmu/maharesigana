@@ -52,7 +52,6 @@ const Hero = async () => {
   );
   const blogsData: SimplifiedPost[] = simplifyResponse(data);
   const blog = blogsData[0];
-  console.dir(blog, { depth: null });
   return (
     <section className="flexCenter relative">
       <HeroContent title={blog.title} summary={blog.summary} slug={blog.slug} />

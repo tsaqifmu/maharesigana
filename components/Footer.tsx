@@ -13,22 +13,22 @@ export const socialMedia = [
   {
     id: "youtube",
     icon: <YoutubeIcon className="text-primaryBlue" />,
-    link: "https://www.youtube.com/@Centrabiotech.official",
+    link: "https://www.youtube.com/@maharesigana4886",
   },
   {
     id: "map",
     icon: <MapsIcon className="text-primaryBlue" />,
-    link: "/",
+    link: "https://g.co/kgs/EdLr9Wr",
   },
   {
     id: "instagram",
     icon: <InstagramIcon className="text-primaryBlue" />,
-    link: "https://www.instagram.com/doktertaniofficial/",
+    link: "https://www.instagram.com/maharesigana/",
   },
   {
     id: "walist",
     icon: <WaIcon className="text-primaryBlue" />,
-    link: "https://api.whatsapp.com/send?phone=6283134954396&text=Halo%20admin%20Dokter%20Tani%2C%20saya%20ingin%20konsultasi",
+    link: "https://api.whatsapp.com/send?phone=",
   },
 ];
 
