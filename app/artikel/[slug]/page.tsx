@@ -15,10 +15,9 @@ interface blogDetailParams {
 
 const BlogDetail = async ({ params }: blogDetailParams) => {
   const { data } = await fetchBlog(
-    `populate[users_permissions_user][populate]=photo&populate=media&filters[slug][$eq]=${params.slug}`,
+    `populate[author][populate]=photo&populate=media&filters[slug][$eq]=${params.slug}`,
   );
   const blogDetailData = simplifyResponse(data);
-  console.dir(blogDetailData, { depth: null });
 
   if (!data.length) {
     notFound();

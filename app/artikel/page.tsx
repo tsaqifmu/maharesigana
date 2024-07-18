@@ -9,7 +9,7 @@ import CardsBlog from "./CardsBlog";
 
 const page = async () => {
   const { data } = await fetchBlog(
-    "populate[users_permissions_user][populate]=photo&populate=media",
+    "populate[author][populate]=photo&populate=media",
   );
   const blogsData: SimplifiedPost[] = simplifyResponse(data);
 

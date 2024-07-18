@@ -1,12 +1,12 @@
-import Container from "./Container";
-import SwiperCard from "./SwiperCard";
+import Container from "@/components/Container";
+import SwiperCard from "@/components/Cards/SwiperCard";
 
 import fetchBlog from "@/utils/fetchBlog";
 import { SimplifiedPost, simplifyResponse } from "@/utils/simplifyResponse";
 
 const Artikel = async () => {
   const { data } = await fetchBlog(
-    "populate[users_permissions_user][populate]=photo&populate=media",
+    "populate[author][populate]=photo&populate=media&filters[category][$eq]=Artikel",
   );
   const blogsData: SimplifiedPost[] = simplifyResponse(data);
 

@@ -1,13 +1,13 @@
-import React from "react";
 import Link from "next/link";
-
-import Container from "./Container";
-import { navLinks } from "@/constants";
 import Image from "next/image";
-import YoutubeIcon from "@/assets/icons/socialMediaIcon/YoutubeIcon";
-import MapsIcon from "@/assets/icons/socialMediaIcon/MapsIcon";
-import InstagramIcon from "@/assets/icons/socialMediaIcon/InstagramIcon";
+
+import { navLinks } from "@/constants";
+
+import Container from "@/components/Container";
 import WaIcon from "@/assets/icons/socialMediaIcon/WaIcon";
+import MapsIcon from "@/assets/icons/socialMediaIcon/MapsIcon";
+import YoutubeIcon from "@/assets/icons/socialMediaIcon/YoutubeIcon";
+import InstagramIcon from "@/assets/icons/socialMediaIcon/InstagramIcon";
 
 export const socialMedia = [
   {
@@ -45,7 +45,7 @@ const QuickAccessNav = () => {
               key={nav.id}
               className="hover:text-orangeDokTan cursor-pointer text-[16px] text-sm font-normal text-white transition-all hover:font-semibold md:text-base"
             >
-              <Link href={`#${nav.id}`}>{nav.title}</Link>
+              <Link href={`${nav.id}`}>{nav.title}</Link>
             </li>
           ))}
         </ul>

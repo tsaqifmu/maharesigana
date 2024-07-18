@@ -18,13 +18,14 @@ export const navLinks = [
     id: "laporan",
     title: "Laporan",
   },
-  {
-    id: "berita",
-    title: "Berita",
-  },
+
   {
     id: "artikel",
     title: "Artikel",
+  },
+  {
+    id: "program-kegiatan",
+    title: "Program Kegiatan",
   },
 ];
 

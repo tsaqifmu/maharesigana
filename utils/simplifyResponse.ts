@@ -14,28 +14,24 @@ interface PostAttributes {
   media: {
     data: Media;
   };
-  users_permissions_user: User;
+  author: Author;
 }
 
 interface Media {
   id: number;
   attributes: MediaAttributes;
 }
-interface User {
+interface Author {
   data: {
-    attributes: UserAttributes;
+    attributes: AuthorAttributes;
   };
 }
-interface UserAttributes {
+interface AuthorAttributes {
   username: string;
-  photo?: {
-    data?: {
-      attributes?: {
-        formats?: {
-          thumbnail?: {
-            url: string;
-          };
-        };
+  photo: {
+    data: {
+      attributes: {
+        url: string;
       };
     };
   };
@@ -43,11 +39,7 @@ interface UserAttributes {
 
 interface MediaAttributes {
   name: string;
-  formats?: {
-    large?: {
-      url: string;
-    };
-  };
+  url: string;
 }
 
 // interface simplified
@@ -66,7 +58,7 @@ export interface SimplifiedPost {
 interface SimplifiedMedia {
   id: number;
   name: string;
-  url?: string;
+  url: string;
 }
 
 interface SimplifiedUser {
@@ -95,13 +87,11 @@ export const simplifyResponse = (data: Post[]): SimplifiedPost[] => {
     media: {
       id: post.attributes.media.data.id,
       name: post.attributes.media.data.attributes.name,
-      url: post.attributes.media.data.attributes.formats?.large?.url,
+      url: post.attributes.media.data.attributes.url,
     },
     user: {
-      username: post.attributes.users_permissions_user.data.attributes.username,
-      photo:
-        post.attributes.users_permissions_user.data.attributes.photo?.data
-          ?.attributes?.formats?.thumbnail?.url || null,
+      username: post.attributes.author?.data.attributes.username,
+      photo: post.attributes.author.data.attributes.photo.data.attributes.url,
     },
   }));
 };

@@ -1,6 +1,5 @@
 import Image from "next/image";
-import React from "react";
-import Container from "./Container";
+import Container from "@/components/Container";
 
 //* HERO COMPONENT SUDAH FIX
 const HeroContent = () => (

@@ -1,8 +1,8 @@
-import React from "react";
-import Container from "./Container";
 import Image from "next/image";
+
 import Vision from "@/assets/icons/Vision";
 import Mission from "@/assets/icons/Mission";
+import Container from "@/components/Container";
 
 const AboutContent = () => (
   <div className="lg:w-1/2">
