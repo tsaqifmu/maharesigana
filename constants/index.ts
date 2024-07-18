@@ -3,8 +3,8 @@
 
 export const navLinks = [
   {
-    id: "info",
-    title: "Info",
+    id: "berita",
+    title: "Berita",
   },
   {
     id: "tentangKami",
