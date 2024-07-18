@@ -1,14 +1,13 @@
-import React from "react";
 import Link from "next/link";
 
 import fetchBlog from "@/utils/fetchBlog";
 import Container from "@/components/Container";
-import CardsBlog from "@/components/Cards/CardsBlog";
 import { SimplifiedPost, simplifyResponse } from "@/utils/simplifyResponse";
+import CardsBlog from "@/components/Cards/CardsBlog";
 
 const page = async () => {
   const { data } = await fetchBlog(
-    "?populate[author][populate]=photo&populate=media&filters[category][$eq]=Artikel",
+    "?populate[author][populate]=photo&populate=media&filters[category][$eq]=Program Kegiatan",
   );
   const blogsData: SimplifiedPost[] = simplifyResponse(data);
 
