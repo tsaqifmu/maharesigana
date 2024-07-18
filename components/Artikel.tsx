@@ -6,10 +6,10 @@ import { SimplifiedPost, simplifyResponse } from "@/utils/simplifyResponse";
 
 const Artikel = async () => {
   const { data } = await fetchBlog(
-    "populate[author][populate]=photo&populate=media&filters[category][$eq]=Artikel",
+    "?populate[author][populate]=photo&populate=media&filters[category][$eq]=Artikel",
   );
-  const blogsData: SimplifiedPost[] = simplifyResponse(data);
 
+  const blogsData: SimplifiedPost[] = simplifyResponse(data);
   return (
     <section className="flexCenter paddingY bg-[#EFF8FF]">
       <Container>

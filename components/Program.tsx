@@ -6,7 +6,7 @@ import { SimplifiedPost, simplifyResponse } from "@/utils/simplifyResponse";
 
 const Program = async () => {
   const { data } = await fetchBlog(
-    "populate[author][populate]=photo&populate=media&filters[category][$eq]=Program Kegiatan",
+    "?populate[author][populate]=photo&populate=media&filters[category][$eq]=Program Kegiatan",
   );
   const blogsData: SimplifiedPost[] = simplifyResponse(data);
 

@@ -8,7 +8,7 @@ const fetchBlog = async (params: string) => {
     cache: "no-store" as RequestCache,
   };
 
-  const res = await fetch(`${config.URL_API}/api/blogs?${params}`, reqOption);
+  const res = await fetch(`${config.URL_API}${params}`, reqOption);
 
   if (!res.ok) {
     throw new Error("failed to fetch from server");
