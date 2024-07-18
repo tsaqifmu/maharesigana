@@ -27,7 +27,7 @@ const HeroContent = ({ title, summary, slug }: HeroContent) => (
       <p className="paragraph line-clamp-4 w-2/3 lg:w-1/2">{summary}</p>
       <Link
         href={`/artikel/${slug}`}
-        className="flex w-fit items-center gap-x-2 rounded-full border-2 border-white px-3 py-1 text-lg font-medium text-white transition-all hover:border-primaryBlue hover:bg-primaryBlue"
+        className="paragraph flex w-fit items-center gap-x-2 rounded-full border-2 border-white px-3 py-1 font-medium text-white transition-all hover:border-primaryBlue hover:bg-primaryBlue"
       >
         <h4>Baca Selengkapnya</h4>
         <ExternalLink />
