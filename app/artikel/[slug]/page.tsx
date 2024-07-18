@@ -27,7 +27,9 @@ const BlogDetail = async ({ params }: blogDetailParams) => {
     <section className="flexCenter">
       <BlogContainer className="mt-24">
         <div className="mt-10 text-slate-900 xl:px-8">
-          <h1 className="text-4xl font-bold">{blog.title}</h1>
+          <h1 className="font-inter text-5xl font-extrabold text-[#242424]">
+            {blog.title}
+          </h1>
           <div className="my-8 flex gap-x-3">
             <Image
               src={`http://213.210.21.45:1337${blog.user.photo}`}
@@ -51,7 +53,7 @@ const BlogDetail = async ({ params }: blogDetailParams) => {
               alt={blog.media.name}
               className="h-[30rem] w-full object-cover object-center"
             />
-            <div className="mt-10 text-xl">
+            <div className="font-sourceSerif mt-10 text-xl leading-7 text-[#242424] lg:text-[22px] lg:leading-8">
               <BlocksRenderer content={blog.content} />
             </div>
           </div>

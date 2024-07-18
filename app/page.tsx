@@ -5,7 +5,7 @@ import Artikel from "@/components/Artikel";
 
 export default function Home() {
   return (
-    <main>
+    <main className="font-inter">
       <Hero />
       <About />
       <Program />
