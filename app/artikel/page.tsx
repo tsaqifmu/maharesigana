@@ -14,20 +14,17 @@ const page = async () => {
 
   return (
     <section className="flexCenter">
-      <Container className="mt-24 py-10">
+      <Container className="mt-10 py-10 lg:mt-24">
         {blogsData.map((data) => (
-          <Link
-            className="cursor-pointer"
-            key={data.id}
-            href={`/artikel/${data.slug}`}
-          >
+          <div key={data.id} className="max-w-3xl border-b-2 py-8">
             <CardsBlog
+              slug={data.slug}
               title={data.title}
               summary={data.summary}
               author={data.user}
               media={data.media}
             />
-          </Link>
+          </div>
         ))}
       </Container>
     </section>

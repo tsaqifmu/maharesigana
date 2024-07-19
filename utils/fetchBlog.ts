@@ -5,7 +5,7 @@ const fetchBlog = async (params: string) => {
     headers: {
       Authorization: `Bearer ${process.env.TOKEN_API}`,
     },
-    // cache: "no-store" as RequestCache,
+    cache: "no-store" as RequestCache,
   };
 
   const res = await fetch(`${config.URL_API}${params}`, reqOption);

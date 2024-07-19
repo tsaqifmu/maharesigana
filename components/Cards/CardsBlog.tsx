@@ -1,8 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
 
 interface CardsBlogProps {
   title: string;
   summary: string;
+  slug: string;
   author: Author;
   media: Media;
 }
@@ -19,10 +21,11 @@ const CardsBlog: React.FC<CardsBlogProps> = ({
   summary,
   author,
   media,
+  slug,
 }) => {
   return (
-    <div className="max-w-3xl border-b-2 py-5">
-      <div className="flex gap-x-3">
+    <Link href={`/artikel/${slug}`} className="space-y-1">
+      <div className="flex gap-x-3 font-inter">
         <Image
           src={`http://213.210.21.45:1337${author.photo}`}
           width={44}
@@ -33,20 +36,22 @@ const CardsBlog: React.FC<CardsBlogProps> = ({
 
         <p className="text-sm">{author.username}</p>
       </div>
-      <div className="flex items-center justify-between">
+      <div className="flex items-start justify-between">
         <div className="w-2/3">
-          <h2 className="text-2xl font-bold">{title}</h2>
-          <h3 className="line-clamp-2 text-gray-500">{summary}</h3>
+          <h2 className="text-xl font-bold lg:text-[26px] lg:leading-[32px]">
+            {title}
+          </h2>
+          <h3 className="line-clamp-2 text-gray-500 lg:mt-2">{summary}</h3>
         </div>
         <Image
           src={`http://213.210.21.45:1337${media.url}`}
           width={200}
           height={200}
           alt="writer photo"
-          className="h-28 w-40 rounded-lg object-cover object-center"
+          className="h-14 w-20 rounded-lg object-cover object-center lg:h-28 lg:w-40"
         />
       </div>
-    </div>
+    </Link>
   );
 };
 

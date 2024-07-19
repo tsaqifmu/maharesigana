@@ -49,7 +49,7 @@ const HeroContentNew = ({ title, slug }: HeroContentNew) => (
       </h1>
       <Link
         href={`/artikel/${slug}`}
-        className="paragraph flex w-fit items-center gap-x-2 bg-[#00205C] px-3 py-1 font-medium text-white transition-all hover:bg-primaryBlue"
+        className="paragraph flex w-fit items-center gap-x-2 bg-[#00205C] bg-opacity-65 px-3 py-1 font-medium text-white transition-all hover:bg-primaryBlue"
       >
         <h4>Baca Selengkapnya</h4>
         <ExternalLink />

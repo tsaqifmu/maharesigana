@@ -25,9 +25,9 @@ const BlogDetail = async ({ params }: blogDetailParams) => {
   const blog = blogDetailData[0];
   return (
     <section className="flexCenter">
-      <BlogContainer className="mt-24">
+      <BlogContainer className="mt-10 lg:mt-24">
         <div className="mt-10 text-slate-900 xl:px-8">
-          <h1 className="font-inter text-5xl font-extrabold text-[#242424]">
+          <h1 className="font-inter text-3xl font-extrabold text-[#242424] lg:text-5xl">
             {blog.title}
           </h1>
           <div className="my-8 flex gap-x-3">
@@ -45,17 +45,15 @@ const BlogDetail = async ({ params }: blogDetailParams) => {
               </div>
             </div>
           </div>
-          <div className="py-12">
-            <Image
-              src={`http://213.210.21.45:1337${blog.media.url}`}
-              width={500}
-              height={500}
-              alt={blog.media.name}
-              className="h-[30rem] w-full object-cover object-center"
-            />
-            <div className="font-sourceSerif mt-10 text-xl leading-7 text-[#242424] lg:text-[22px] lg:leading-8">
-              <BlocksRenderer content={blog.content} />
-            </div>
+          <Image
+            src={`http://213.210.21.45:1337${blog.media.url}`}
+            width={500}
+            height={500}
+            alt={blog.media.name}
+            className="h-[30rem] w-full object-cover object-center"
+          />
+          <div className="mt-10 font-sourceSerif text-xl leading-7 text-[#242424] lg:text-[22px] lg:leading-8">
+            <BlocksRenderer content={blog.content} />
           </div>
         </div>
       </BlogContainer>
