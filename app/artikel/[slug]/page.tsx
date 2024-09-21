@@ -1,11 +1,11 @@
 import React from "react";
 import Image from "next/image";
+import { notFound } from "next/navigation";
+import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 
 import fetchBlog from "@/utils/fetchBlog";
 import BlogContainer from "@/components/BlogContainer";
-import { notFound } from "next/navigation";
 import { simplifyResponse } from "@/utils/simplifyResponse";
-import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 
 interface blogDetailParams {
   params: {

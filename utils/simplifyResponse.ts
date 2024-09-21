@@ -90,8 +90,8 @@ export const simplifyResponse = (data: Post[]): SimplifiedPost[] => {
       url: post.attributes.media.data.attributes.url,
     },
     user: {
-      username: post.attributes.author?.data.attributes.username,
-      photo: post.attributes.author.data.attributes.photo.data.attributes.url,
+      username: post.attributes.author?.data?.attributes.username,
+      photo: post.attributes.author.data?.attributes.photo.data.attributes.url,
     },
   }));
 };

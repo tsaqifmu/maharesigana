@@ -1,7 +1,5 @@
 //! dont forget to change tailwind.config.js file
 
-import { list } from "postcss";
-
 export const styles = {
   //! General Styles
   boxWidth: "3xl:max-w-[1280px] w-full",
