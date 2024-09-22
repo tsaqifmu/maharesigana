@@ -1,9 +1,8 @@
-import Link from "next/link";
+import { SimplifiedPost, simplifyResponse } from "@/utils/simplifyResponse";
 
 import fetchBlog from "@/utils/fetchBlog";
 import Container from "@/components/Container";
 import CardsBlog from "@/components/Cards/CardsBlog";
-import { SimplifiedPost, simplifyResponse } from "@/utils/simplifyResponse";
 
 const page = async () => {
   const { data } = await fetchBlog(

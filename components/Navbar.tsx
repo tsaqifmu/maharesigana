@@ -46,12 +46,15 @@ const Logo = () => (
 );
 
 const DonationButton = () => (
-  <button className="flex items-center justify-between gap-x-2 rounded-full bg-primaryBlue px-6 py-1">
+  <Link
+    href={"/donasi"}
+    className="flex items-center justify-between gap-x-2 rounded-full bg-primaryBlue px-6 py-1"
+  >
     <h4 className="font-belanosima text-base font-semibold lg:text-xl">
       Donasi
     </h4>
     <ArrowRight />
-  </button>
+  </Link>
 );
 
 const MobileMenu = ({ toggleMenu, setToggleMenu }: MobileMenuProps) => (
