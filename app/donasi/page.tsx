@@ -14,13 +14,12 @@ const page = async () => {
   const blogsData: SimplifiedPost[] = simplifyResponse(data);
   const blog = blogsData[0];
 
-  console.log(blog);
   return (
     <section className="flexCenter">
       <Container>
         <div className="mt-24 flex w-full items-center space-x-10 py-10">
           <Image
-            src={`http://213.210.21.45:1337${blog.media.url}`}
+            src={`${process.env.URL_API}${blog.media.url}`}
             width={500}
             height={500}
             alt={blog.media.name}

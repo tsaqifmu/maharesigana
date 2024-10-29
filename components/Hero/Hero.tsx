@@ -39,7 +39,6 @@ const Hero = async () => {
   const blog = blogsData[0];
   return (
     <section className="flexCenter relative">
-      {/* <HeroContent title={blog.title} summary={blog.summary} slug={blog.slug} /> */}
       <HeroContentNew title={blog.title} slug={blog.slug} />
       <HeroImage media={blog.media} />
     </section>

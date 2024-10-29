@@ -8,7 +8,7 @@ interface HeroImage {
 }
 export const HeroImage = ({ media }: HeroImage) => (
   <Image
-    src={`http://213.210.21.45:1337${media.url}`}
+    src={`${process.env.URL_API}${media.url}`}
     alt={media.name}
     width={1920}
     height={1080}

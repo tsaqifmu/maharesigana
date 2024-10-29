@@ -1,6 +1,6 @@
 import config from "./config";
 
-const fetchBlog = async (params: string) => {
+const fetchStore = async (params: string) => {
   const reqOption = {
     headers: {
       Authorization: `Bearer ${process.env.TOKEN_API}`,
@@ -9,7 +9,7 @@ const fetchBlog = async (params: string) => {
   };
 
   const res = await fetch(
-    `${process.env.URL_API}/api/blogs${params}`,
+    `${process.env.URL_API}/api/stores${params}`,
     reqOption,
   );
 
@@ -20,4 +20,4 @@ const fetchBlog = async (params: string) => {
   return res.json();
 };
 
-export default fetchBlog;
+export default fetchStore;
