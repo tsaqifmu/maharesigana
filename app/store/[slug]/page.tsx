@@ -37,17 +37,10 @@ const PriceDisplay = ({
   </div>
 );
 
-const ProductDescription = () => (
-  // { description }: { description: string }
+const ProductDescription = ({ description }: { description: string }) => (
   <div>
     <h4 className="text-lg font-bold">Description</h4>
-    {/* <p className="text-slate-500">{description}</p> */}
-    <p className="text-slate-500">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa
-      accusantium, aliquid similique iusto excepturi quis, amet sequi distinctio
-      eos animi voluptate est! Animi, tempora ipsam temporibus magnam possimus
-      sit at!
-    </p>
+    <p className="text-slate-500">{description}</p>
   </div>
 );
 
@@ -99,9 +92,7 @@ const ProductDetailPage = async ({ params }: storeDetailParams) => {
               discountedPrice={product.discountedPrice}
             />
 
-            <ProductDescription
-            // description={product.description}
-            />
+            <ProductDescription description={product.description} />
 
             <BuyNowButton productTitle={product.title} />
           </div>

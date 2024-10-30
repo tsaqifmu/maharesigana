@@ -44,6 +44,7 @@ interface ProductAttributes {
   updatedAt: string;
   publishedAt: string;
   title: string;
+  description: string;
   originalPrice: string;
   discountedPrice: string | null;
   image: {
@@ -101,6 +102,7 @@ export const simplifyStoreResponse = (data: Product[]) => {
     title: product?.attributes?.title,
     price: formatRupiah(product?.attributes?.originalPrice),
     discountedPrice: formatRupiah(product?.attributes?.discountedPrice),
+    description: product?.attributes?.description,
     imageUrl: product?.attributes?.image?.data?.attributes?.url,
     imageName: product?.attributes?.image?.data?.attributes?.name,
   }));

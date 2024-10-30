@@ -12,6 +12,7 @@ export interface ProductItem {
   id: number;
   title: string;
   price: string;
+  description: string;
   discountedPrice: string | null;
   imageUrl: string;
   imageName: string;
