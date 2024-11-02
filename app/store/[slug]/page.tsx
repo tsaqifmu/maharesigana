@@ -31,15 +31,17 @@ const PriceDisplay = ({
   discountedPrice: string | null;
 }) => (
   <div className="flex items-end space-x-4">
-    <h3 className="text-lg text-slate-500 line-through">{originalPrice}</h3>
-    <h3 className="text-4xl font-bold">{discountedPrice}</h3>
+    <h3 className="text-base text-slate-500 line-through lg:text-lg">
+      {originalPrice}
+    </h3>
+    <h3 className="text-2xl font-bold lg:text-4xl">{discountedPrice}</h3>
   </div>
 );
 
 const ProductDescription = ({ description }: { description: string }) => (
   <div>
     <h4 className="text-lg font-bold">Description</h4>
-    <p className="text-slate-500">{description}</p>
+    <p className="paragraph text-slate-700">{description}</p>
   </div>
 );
 
@@ -70,15 +72,17 @@ const ProductDetailPage = async ({ params }: storeDetailParams) => {
   return (
     <section className="flexCenter">
       <Container>
-        <div className="flex space-x-5 py-48 font-inter text-slate-800">
+        <div className="flex flex-col space-y-5 py-20 font-inter text-slate-800 lg:flex-row lg:space-x-5 lg:py-48">
           {/* Product Image */}
-          <div className="w-1/2">
+          <div className="w-full lg:w-1/2">
             <ImageSwiper imageData={product.imageData} />
           </div>
 
           {/* Product Details */}
-          <div className="w-1/2 space-y-8">
-            <h1 className="text-4xl font-semibold">{product.title}</h1>
+          <div className="w-full space-y-8 lg:w-1/2">
+            <h1 className="text-2xl font-semibold lg:text-5xl">
+              {product.title}
+            </h1>
 
             <PriceDisplay
               originalPrice={product.price}

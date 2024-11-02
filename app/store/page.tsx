@@ -36,10 +36,14 @@ function ProductCard({ product }: { product: ProductItem }) {
       />
       <div className="flex flex-col gap-y-3 px-4 py-4">
         <div className="flex space-x-2">
-          <p className="text-2xl font-bold">{product?.discountedPrice}</p>
-          <p className="text-gray-500 line-through">{product?.price}</p>
+          <p className="text-xl font-bold lg:text-2xl">
+            {product?.discountedPrice}
+          </p>
+          <p className="text-xs text-gray-500 line-through lg:text-base">
+            {product?.price}
+          </p>
         </div>
-        <h2 className="text-lg font-bold">{product.title}</h2>
+        <h2 className="text-base font-bold lg:text-lg">{product.title}</h2>
         <div>
           <Link
             href={`/store/${product.title}`}
