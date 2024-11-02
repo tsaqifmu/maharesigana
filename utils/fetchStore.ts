@@ -3,13 +3,13 @@ import config from "./config";
 const fetchStore = async (params: string) => {
   const reqOption = {
     headers: {
-      Authorization: `Bearer ${process.env.TOKEN_API}`,
+      Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN_API}`,
     },
     cache: "no-store" as RequestCache,
   };
 
   const res = await fetch(
-    `${process.env.URL_API}/api/stores${params}`,
+    `${process.env.NEXT_PUBLIC_URL_API}/api/stores${params}`,
     reqOption,
   );
 

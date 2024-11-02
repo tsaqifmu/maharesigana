@@ -1,4 +1,4 @@
-const fetchBlog = async (params: string) => {
+const fetchDonation = async (params: string) => {
   const reqOption = {
     headers: {
       Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN_API}`,
@@ -7,7 +7,7 @@ const fetchBlog = async (params: string) => {
   };
 
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL_API}/api/blogs${params}`,
+    `${process.env.NEXT_PUBLIC_URL_API}/api/donations${params}`,
     reqOption,
   );
 
@@ -18,4 +18,4 @@ const fetchBlog = async (params: string) => {
   return res.json();
 };
 
-export default fetchBlog;
+export default fetchDonation;

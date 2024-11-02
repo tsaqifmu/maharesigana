@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -5,16 +7,26 @@ import { notFound } from "next/navigation";
 import fetchStore from "@/utils/fetchStore";
 import { decodeUrlParams } from "@/utils/decodeParams";
 import { simplifyStoreResponse } from "@/utils/simplifyStoreResponse";
-import { ProductItem } from "../page";
 
 import ArrowRight from "@/assets/icons/ArrowRight";
 
 import Container from "@/components/Container";
+import { ProductItem } from "../page";
+
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+
+// import required modules
+import { Navigation } from "swiper/modules";
 
 // Constant
 const API_BASE_URL = "http://213.210.21.45:1337";
-const FETCH_QUERY =
-  "?populate[author][populate]=photo&populate=image&filters[title][$eq]=";
+const FETCH_QUERY = "?populate=image&filters[title][$eq]=";
 
 // Types
 interface storeDetailParams {
@@ -74,13 +86,27 @@ const ProductDetailPage = async ({ params }: storeDetailParams) => {
         <div className="flex space-x-5 py-48 font-inter text-slate-800">
           {/* Product Image */}
           <div className="w-1/2">
-            <Image
-              src={`${API_BASE_URL}${product.imageUrl}`}
-              alt={product.imageName}
-              width={800}
-              height={800}
-              className="rounded-xl object-cover"
-            />
+            <Swiper
+              navigation={true}
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
+              }}
+              modules={[Navigation, Autoplay]}
+              className="mySwiper"
+            >
+              {product.imageData.map((image) => (
+                <SwiperSlide>
+                  <Image
+                    src={`${API_BASE_URL}${image.imageUrl}`}
+                    alt={image.imageName}
+                    width={800}
+                    height={800}
+                    className="rounded-xl object-cover"
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
 
           {/* Product Details */}

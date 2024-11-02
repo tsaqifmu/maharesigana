@@ -27,7 +27,7 @@ const CardsBlog: React.FC<CardsBlogProps> = ({
     <Link href={`/artikel/${slug}`} className="space-y-1">
       <div className="flex gap-x-3 font-inter">
         <Image
-          src={`${process.env.URL_API}${author.photo}`}
+          src={`${process.env.NEXT_PUBLIC_URL_API}${author.photo}`}
           width={44}
           height={44}
           alt="writer photo"
@@ -44,7 +44,7 @@ const CardsBlog: React.FC<CardsBlogProps> = ({
           <h3 className="line-clamp-2 text-gray-500 lg:mt-2">{summary}</h3>
         </div>
         <Image
-          src={`${process.env.URL_API}${media.url}`}
+          src={`${process.env.NEXT_PUBLIC_URL_API}${media.url}`}
           width={200}
           height={200}
           alt="writer photo"

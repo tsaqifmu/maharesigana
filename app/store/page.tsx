@@ -8,22 +8,28 @@ import { simplifyStoreResponse } from "@/utils/simplifyStoreResponse";
 import Container from "@/components/Container";
 import ArrowRight from "@/assets/icons/ArrowRight";
 
+const FETCH_QUERY = "?populate=image";
+
+interface ImageData {
+  imageUrl: string;
+  imageName: string;
+}
+
 export interface ProductItem {
   id: number;
   title: string;
   price: string;
+  discountedPrice: string;
   description: string;
-  discountedPrice: string | null;
-  imageUrl: string;
-  imageName: string;
+  imageData: ImageData[];
 }
 
 function ProductCard({ product }: { product: ProductItem }) {
   return (
     <div className="overflow-clip rounded-xl border font-inter transition-all hover:shadow-lg">
       <Image
-        src={`${process.env.URL_API}${product.imageUrl}`}
-        alt={product.imageName}
+        src={`${process.env.NEXT_PUBLIC_URL_API}${product?.imageData[0].imageUrl}`}
+        alt={product?.imageData[0].imageName}
         width={500}
         height={500}
         className="h-[200px] w-full object-cover"
@@ -49,11 +55,11 @@ function ProductCard({ product }: { product: ProductItem }) {
 }
 
 const App = async () => {
-  const { data } = await fetchStore(
-    "?populate[author][populate]=photo&populate=image",
-  );
+  const { data } = await fetchStore(`${FETCH_QUERY}`);
 
-  const storeData: ProductItem[] = simplifyStoreResponse(data);
+  const storeData = simplifyStoreResponse(data);
+
+  // console.dir(storeData, { depth: null });
 
   return (
     <section className="flexCenter">

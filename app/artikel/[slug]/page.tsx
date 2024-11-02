@@ -32,7 +32,7 @@ const BlogDetail = async ({ params }: blogDetailParams) => {
           </h1>
           <div className="my-8 flex gap-x-3">
             <Image
-              src={`${process.env.URL_API}${blog.user.photo}`}
+              src={`${process.env.NEXT_PUBLIC_URL_API}${blog.user.photo}`}
               width={44}
               height={44}
               alt="Author Photo"
@@ -46,7 +46,7 @@ const BlogDetail = async ({ params }: blogDetailParams) => {
             </div>
           </div>
           <Image
-            src={`${process.env.URL_API}${blog.media.url}`}
+            src={`${process.env.NEXT_PUBLIC_URL_API}${blog.media.url}`}
             width={500}
             height={500}
             alt={blog.media.name}

@@ -7,6 +7,23 @@ import Container from "@/components/Container";
 import { SimplifiedPost, simplifyResponse } from "@/utils/simplifyResponse";
 import Link from "next/link";
 import ArrowRight from "@/assets/icons/ArrowRight";
+import fetchDonation from "@/utils/fetchDonation";
+import { simplifyDonationResponse } from "@/utils/simplifyDonationResponse";
+
+// Constant
+const API_BASE_URL = "http://213.210.21.45:1337";
+const FETCH_QUERY = "?&populate=media";
+
+interface ResponseData {
+  id: number;
+  title: string;
+  description: string;
+  bankName: string;
+  accountNumber: string;
+  accountName: string;
+  imageUrl: string;
+  imageName: string;
+}
 
 const BuyNowButton = () => (
   <div className="w-1/2">
@@ -21,35 +38,32 @@ const BuyNowButton = () => (
 );
 
 const page = async () => {
-  const { data } = await fetchBlog(
-    "?populate[author][populate]=photo&populate=media&filters[category][$eq]=Donasi",
-  );
-  const blogsData: SimplifiedPost[] = simplifyResponse(data);
-  const blog = blogsData[0];
+  // Fetch product data
+  const { data } = await fetchDonation(`${FETCH_QUERY}`);
+
+  const [donationData]: ResponseData[] = simplifyDonationResponse(data);
 
   return (
     <section className="flexCenter">
       <Container>
         <div className="flex w-full space-x-10 py-48 font-inter text-slate-800">
           <Image
-            src={`${process.env.URL_API}${blog.media.url}`}
+            src={`${process.env.NEXT_PUBLIC_URL_API}${donationData.imageUrl}`}
             width={500}
             height={500}
-            alt={blog.media.name}
+            alt={donationData.imageName}
             className="h-[40rem] w-1/2 object-cover object-center"
           />
           <div className="flex w-1/2 flex-col space-y-10">
-            <h3 className="text-4xl font-bold">
-              Wakaf untuk kemaslahatan umat: wujudkan impian kebaikan anda
-            </h3>
-            <p className="text-slate-600">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores
-              perspiciatis excepturi vel voluptate aliquid, itaque nisi nostrum
-              eos molestiae totam ullam mollitia illo architecto saepe aut,
-              praesentium veniam adipisci aspernatur.
-            </p>
+            <h3 className="text-4xl font-bold">{donationData.title}</h3>
+            <p className="text-slate-600">{donationData.description}</p>
             <h4>
-              Bank BNI 2311117774 <br /> a.n Mahasiswa Relawan Siaga Bencana
+              <span>
+                {donationData.bankName}
+                <span>{donationData.accountNumber}</span>
+              </span>
+              <br /> a.n
+              <span>{donationData.accountName}</span>
             </h4>
 
             <BuyNowButton />

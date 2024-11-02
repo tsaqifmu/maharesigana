@@ -1,4 +1,4 @@
-interface ImageFormat {
+export interface ImageFormatDetails {
   ext: string;
   url: string;
   hash: string;
@@ -11,17 +11,19 @@ interface ImageFormat {
   sizeInBytes: number;
 }
 
-interface ImageAttributes {
+export interface ImageFormats {
+  small: ImageFormatDetails;
+  thumbnail: ImageFormatDetails;
+  medium?: ImageFormatDetails;
+}
+
+export interface ImageAttributes {
   name: string;
   alternativeText: string | null;
   caption: string | null;
   width: number;
   height: number;
-  formats: {
-    small: ImageFormat;
-    medium: ImageFormat;
-    thumbnail: ImageFormat;
-  };
+  formats: ImageFormats;
   hash: string;
   ext: string;
   mime: string;
@@ -29,12 +31,12 @@ interface ImageAttributes {
   url: string;
   previewUrl: string | null;
   provider: string;
-  provider_metadata: Record<string, any> | null;
+  provider_metadata: string | null;
   createdAt: string;
   updatedAt: string;
 }
 
-interface ImageData {
+interface ImageItem {
   id: number;
   attributes: ImageAttributes;
 }
@@ -48,7 +50,7 @@ interface ProductAttributes {
   originalPrice: string;
   discountedPrice: string | null;
   image: {
-    data: ImageData;
+    data: ImageItem[];
   };
 }
 
@@ -56,8 +58,6 @@ interface Product {
   id: number;
   attributes: ProductAttributes;
 }
-
-type ProductResponse = Product[];
 
 type RupiahValue = string | null | undefined;
 
@@ -96,6 +96,13 @@ function formatRupiah(angka: RupiahValue): string {
   }
 }
 
+function simplifyImageResponse(images: ImageItem[]) {
+  return images.map((image) => ({
+    imageUrl: image?.attributes?.url,
+    imageName: image?.attributes?.name,
+  }));
+}
+
 export const simplifyStoreResponse = (data: Product[]) => {
   return data.map((product: Product) => ({
     id: product.id,
@@ -103,7 +110,6 @@ export const simplifyStoreResponse = (data: Product[]) => {
     price: formatRupiah(product?.attributes?.originalPrice),
     discountedPrice: formatRupiah(product?.attributes?.discountedPrice),
     description: product?.attributes?.description,
-    imageUrl: product?.attributes?.image?.data?.attributes?.url,
-    imageName: product?.attributes?.image?.data?.attributes?.name,
+    imageData: simplifyImageResponse(product?.attributes?.image?.data),
   }));
 };
