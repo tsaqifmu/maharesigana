@@ -95,8 +95,8 @@ const ProductDetailPage = async ({ params }: storeDetailParams) => {
               modules={[Navigation, Autoplay]}
               className="mySwiper"
             >
-              {product.imageData.map((image) => (
-                <SwiperSlide>
+              {product.imageData.map((image, index) => (
+                <SwiperSlide key={index}>
                   <Image
                     src={`${API_BASE_URL}${image.imageUrl}`}
                     alt={image.imageName}
