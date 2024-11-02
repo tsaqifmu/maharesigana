@@ -1,7 +1,4 @@
-"use client";
-
 import Link from "next/link";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 
 import fetchStore from "@/utils/fetchStore";
@@ -12,20 +9,10 @@ import ArrowRight from "@/assets/icons/ArrowRight";
 
 import Container from "@/components/Container";
 import { ProductItem } from "../page";
-
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-
-// import required modules
-import { Navigation } from "swiper/modules";
+import ImageSwiper from "@/components/Store/ImageSwiper";
 
 // Constant
-const API_BASE_URL = "http://213.210.21.45:1337";
+
 const FETCH_QUERY = "?populate=image&filters[title][$eq]=";
 
 // Types
@@ -86,27 +73,7 @@ const ProductDetailPage = async ({ params }: storeDetailParams) => {
         <div className="flex space-x-5 py-48 font-inter text-slate-800">
           {/* Product Image */}
           <div className="w-1/2">
-            <Swiper
-              navigation={true}
-              autoplay={{
-                delay: 2500,
-                disableOnInteraction: false,
-              }}
-              modules={[Navigation, Autoplay]}
-              className="mySwiper"
-            >
-              {product.imageData.map((image, index) => (
-                <SwiperSlide key={index}>
-                  <Image
-                    src={`${API_BASE_URL}${image.imageUrl}`}
-                    alt={image.imageName}
-                    width={800}
-                    height={800}
-                    className="rounded-xl object-cover"
-                  />
-                </SwiperSlide>
-              ))}
-            </Swiper>
+            <ImageSwiper imageData={product.imageData} />
           </div>
 
           {/* Product Details */}

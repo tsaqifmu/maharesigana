@@ -10,7 +10,7 @@ import ArrowRight from "@/assets/icons/ArrowRight";
 
 const FETCH_QUERY = "?populate=image";
 
-interface ImageData {
+export interface ImageData {
   imageUrl: string;
   imageName: string;
 }
