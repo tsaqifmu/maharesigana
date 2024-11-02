@@ -1,17 +1,15 @@
 import React from "react";
+import Link from "next/link";
 import Image from "next/image";
 
-import fetchBlog from "@/utils/fetchBlog";
-
-import Container from "@/components/Container";
-import { SimplifiedPost, simplifyResponse } from "@/utils/simplifyResponse";
-import Link from "next/link";
-import ArrowRight from "@/assets/icons/ArrowRight";
 import fetchDonation from "@/utils/fetchDonation";
 import { simplifyDonationResponse } from "@/utils/simplifyDonationResponse";
 
+import ArrowRight from "@/assets/icons/ArrowRight";
+
+import Container from "@/components/Container";
+
 // Constant
-const API_BASE_URL = "http://213.210.21.45:1337";
 const FETCH_QUERY = "?&populate=media";
 
 interface ResponseData {
@@ -25,7 +23,13 @@ interface ResponseData {
   imageName: string;
 }
 
-const BuyNowButton = () => (
+interface BankAccountInfoProps {
+  bankName: string;
+  accountNumber: string;
+  accountName: string;
+}
+
+const ConfirmButton = () => (
   <div className="w-1/2">
     <Link
       href={`/donasi`}
@@ -37,7 +41,39 @@ const BuyNowButton = () => (
   </div>
 );
 
-const page = async () => {
+const DonationImage = ({
+  imageUrl,
+  imageName,
+}: {
+  imageUrl: string;
+  imageName: string;
+}) => (
+  <Image
+    src={`${process.env.NEXT_PUBLIC_URL_API}${imageUrl}`}
+    width={500}
+    height={500}
+    alt={imageName}
+    className="h-[40rem] w-full object-cover object-center lg:w-1/2"
+  />
+);
+
+const BankAccountInfo: React.FC<BankAccountInfoProps> = ({
+  bankName,
+  accountNumber,
+  accountName,
+}) => (
+  <h4>
+    <span>
+      {bankName}
+      <span className="ml-2">{accountNumber}</span>
+    </span>
+    <br />
+    <span className="mr-2">a.n</span>
+    <span>{accountName}</span>
+  </h4>
+);
+
+const DonationPage = async () => {
   // Fetch product data
   const { data } = await fetchDonation(`${FETCH_QUERY}`);
 
@@ -46,27 +82,27 @@ const page = async () => {
   return (
     <section className="flexCenter">
       <Container>
-        <div className="flex w-full space-x-10 py-48 font-inter text-slate-800">
-          <Image
-            src={`${process.env.NEXT_PUBLIC_URL_API}${donationData.imageUrl}`}
-            width={500}
-            height={500}
-            alt={donationData.imageName}
-            className="h-[40rem] w-1/2 object-cover object-center"
+        <div className="flex w-full flex-col space-y-5 py-20 font-inter text-slate-800 lg:flex-row lg:space-x-10 lg:py-48">
+          {/* Donation Image */}
+          <DonationImage
+            imageUrl={donationData.imageUrl}
+            imageName={donationData.imageName}
           />
-          <div className="flex w-1/2 flex-col space-y-10">
-            <h3 className="text-4xl font-bold">{donationData.title}</h3>
-            <p className="text-slate-600">{donationData.description}</p>
-            <h4>
-              <span>
-                {donationData.bankName}
-                <span>{donationData.accountNumber}</span>
-              </span>
-              <br /> a.n
-              <span>{donationData.accountName}</span>
-            </h4>
 
-            <BuyNowButton />
+          {/* Donation Description */}
+          <div className="flex w-full flex-col space-y-5 lg:w-1/2 lg:space-y-10">
+            <h3 className="heading1">{donationData.title}</h3>
+            <p className="paragraph text-slate-700">
+              {donationData.description}
+            </p>
+
+            <BankAccountInfo
+              bankName={donationData.bankName}
+              accountNumber={donationData.accountNumber}
+              accountName={donationData.accountName}
+            />
+
+            <ConfirmButton />
           </div>
         </div>
       </Container>
@@ -74,4 +110,4 @@ const page = async () => {
   );
 };
 
-export default page;
+export default DonationPage;

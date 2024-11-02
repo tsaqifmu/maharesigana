@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
@@ -10,7 +12,6 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Navigation } from "swiper/modules";
-import Image from "next/image";
 import { ImageData } from "@/app/store/page";
 
 const API_BASE_URL = "http://213.210.21.45:1337";
