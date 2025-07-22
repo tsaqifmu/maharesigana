@@ -6,6 +6,7 @@ import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 import fetchBlog from "@/utils/fetchBlog";
 import BlogContainer from "@/components/BlogContainer";
 import { simplifyResponse } from "@/utils/simplifyResponse";
+import BlocksRendererClient from "@/components/BlockRenderClient";
 
 interface blogDetailParams {
   params: {
@@ -53,7 +54,8 @@ const BlogDetail = async ({ params }: blogDetailParams) => {
             className="h-[30rem] w-full object-cover object-center"
           />
           <div className="mt-10 font-sourceSerif text-xl leading-7 text-[#242424] lg:text-[22px] lg:leading-8">
-            <BlocksRenderer content={blog.content} />
+            {/* <BlocksRenderer content={blog.content} /> */}
+            <BlocksRendererClient content={blog.content} />
           </div>
         </div>
       </BlogContainer>
